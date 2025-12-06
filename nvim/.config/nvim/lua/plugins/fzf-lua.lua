@@ -1,8 +1,5 @@
 return {
     'ibhagwan/fzf-lua',
-    dependencies = {
-        'nvim-tree/nvim-web-devicons',
-    },
     keys = {
         -- LSP
         { 'gd', function() require('fzf-lua').lsp_definitions() end, desc = 'Goto Definitions' },
@@ -14,6 +11,7 @@ return {
         { '<leader>sS', function() require('fzf-lua').lsp_live_workspace_symbols() end, desc = 'Live Workspace Symbols' },
         { '<leader>sd', function() require('fzf-lua').lsp_document_diagnostics() end, desc = 'Document Diagnostics' },
         { '<leader>sD', function() require('fzf-lua').lsp_workspace_diagnostics() end, desc = 'Workspace Diagnostics' },
+
         -- files
         { '<leader><space>', function() require('fzf-lua').global() end, desc = 'Global Picker' },
         { '<leader>/', function() require('fzf-lua').live_grep_native() end, desc = 'Live Grep' },

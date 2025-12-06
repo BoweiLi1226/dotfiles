@@ -9,5 +9,4 @@ return {
         },
         use_default_keymaps = true,
     },
-    dependencies = { 'nvim-tree/nvim-web-devicons' },
 }

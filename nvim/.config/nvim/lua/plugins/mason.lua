@@ -34,6 +34,12 @@ return {
 
     {
         'neovim/nvim-lspconfig',
+        event = 'VeryLazy',
+    },
+
+    {
+        'mfussenegger/nvim-jdtls',
+        event = 'VeryLazy',
     },
 
     {

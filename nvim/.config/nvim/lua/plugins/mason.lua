@@ -17,18 +17,29 @@ return {
                 end
             end
 
-            packages = {
+            packages_to_install = {
                 'tree-sitter-cli',
-
                 'rust-analyzer',
+
                 'gopls',
+                'delve',
+
                 'pyright',
+                'debugpy',
+
                 'lua-language-server',
+
                 'typescript-language-server',
+
                 'lemminx',
+
                 'jdtls',
                 'kotlin-lsp',
             }
+
+            for _, package_to_install in ipairs(packages_to_install) do
+                mason_install(package_to_install)
+            end
         end
     },
 

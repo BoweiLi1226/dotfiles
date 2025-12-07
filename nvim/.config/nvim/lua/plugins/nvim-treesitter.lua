@@ -10,15 +10,28 @@ return {
                 'gomod',
                 'gowork',
                 'gosum',
+
                 'python',
+
                 'c',
+
                 'lua',
                 'luadoc',
                 'luap',
+
                 'vim',
                 'vimdoc',
+
                 'html',
+
                 'java',
+                'kotlin',
+
+                'rust',
+
+                'typescript',
+
+                'xml',
             })
         end,
     },

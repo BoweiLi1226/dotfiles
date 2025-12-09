@@ -5,7 +5,15 @@ return {
         depenencies = {
             -- 'mason-org/mason-lspconfig.nvim',
         },
-        opts = { },
+        opts = {
+            ui = {
+                icons = {
+                    package_installed = "✓",
+                    package_pending = "➜",
+                    package_uninstalled = "✗"
+                }
+            }
+        },
         config = function(_, opts)
             require('mason').setup(opts)
             local mason_registry = require('mason-registry')

@@ -9,7 +9,19 @@ return {
         completion = {
             documentation = {
                 auto_show = true,
+                window = {
+                    border = 'rounded',
+                },
             },
+            menu = {
+                border = 'rounded',
+                draw = {
+                    columns = {
+                        { 'label', 'label_description', gap = 1 },
+                        { 'kind_icon', 'kind' },
+                    },
+                },
+            }
         },
         keymap = {
             preset = 'super-tab',

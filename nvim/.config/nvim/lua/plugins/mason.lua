@@ -20,8 +20,8 @@ return {
 
             local mason_registry = require 'mason-registry'
 
-            local function mason_install(package)
-                local success, package = pcall(mason_registry.get_package, package)
+            local function mason_install(name)
+                local success, package = pcall(mason_registry.get_package, name)
                 if success and not package:is_installed() then
                     package:install()
                 end

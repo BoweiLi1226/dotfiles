@@ -11,7 +11,7 @@ return {
         'saadparwaiz1/cmp_luasnip',
     },
     opts = function()
-        local cmp = require("cmp")
+        local cmp = require 'cmp'
         return {
             snippet = {
                 expand = function(args)

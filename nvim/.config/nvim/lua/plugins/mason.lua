@@ -15,8 +15,10 @@ return {
             }
         },
         config = function(_, opts)
-            require('mason').setup(opts)
-            local mason_registry = require('mason-registry')
+            local mason = require 'mason'
+            mason.setup(opts)
+
+            local mason_registry = require 'mason-registry'
 
             local function mason_install(package)
                 local success, package = pcall(mason_registry.get_package, package)
@@ -25,7 +27,7 @@ return {
                 end
             end
 
-            packages_to_install = {
+            local packages_to_install = {
                 'tree-sitter-cli',
                 'rust-analyzer',
 

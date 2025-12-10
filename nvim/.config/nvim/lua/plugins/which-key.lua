@@ -3,13 +3,10 @@ return {
     event = 'VeryLazy',
     opts = {},
     keys = {
-        { '<leader>?', function()
-            require('which-key').show({ global = false })
-        end, desc = 'Buffer Local Keymaps (which-key)',
-        },
+        { '<leader>?', function() require('which-key').show({ global = false }) end, desc = 'Buffer Local Keymaps (which-key)' },
     },
     config = function()
-        local wk = require('which-key')
+        local wk = require 'which-key'
         wk.add({
             { '<leader>f', group = 'file' },
             { '<leader>s', group = 'search' },

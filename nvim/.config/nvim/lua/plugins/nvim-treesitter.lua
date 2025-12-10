@@ -4,7 +4,7 @@ return {
         branch = 'main',
         event = 'VeryLazy',
         config = function()
-            local treesitter = require('nvim-treesitter')
+            local treesitter = require 'nvim-treesitter'
             treesitter.install({
                 'go',
                 'gomod',
@@ -55,11 +55,11 @@ return {
             },
         },
         config = function(_, opts)
-            local textobj = require('nvim-treesitter-textobjects')
+            local textobj = require 'nvim-treesitter-textobjects'
             textobj.setup(opts)
 
             -- select
-            local select = require('nvim-treesitter-textobjects.select')
+            local select = require 'nvim-treesitter-textobjects.select'
             vim.keymap.set({ 'x', 'o' }, 'af', function()
                 select.select_textobject('@function.outer', 'textobjects')
             end)
@@ -74,7 +74,7 @@ return {
             end)
 
             -- move
-            local move = require('nvim-treesitter-textobjects.move')
+            local move = require 'nvim-treesitter-textobjects.move'
             vim.keymap.set({ 'n', 'x', 'o' }, ']f', function()
                 move.goto_next_start('@function.outer', 'textobjects')
             end)

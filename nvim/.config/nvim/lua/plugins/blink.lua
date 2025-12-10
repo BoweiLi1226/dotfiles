@@ -31,7 +31,7 @@ return {
                 return {}
             end,
             keymap = {
-                preset = "super-tab",
+                preset = 'super-tab',
             },
             completion = {
                 menu = {

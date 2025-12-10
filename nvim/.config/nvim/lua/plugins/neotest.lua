@@ -10,7 +10,7 @@ return {
             version = '*',
             -- Install gotestsum using go from system
             build = function()
-                vim.system({"go", "install", "gotest.tools/gotestsum@latest"}):wait()
+                vim.system({'go', 'install', 'gotest.tools/gotestsum@latest'}):wait()
             end,
         },
         'nvim-neotest/neotest-python',

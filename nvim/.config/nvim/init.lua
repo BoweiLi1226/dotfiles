@@ -1,4 +1,5 @@
-require('config.options')
-require('config.lazy')
-require('config.color-scheme')
-require('config.keymaps')
+require 'config.options'
+require 'config.lazy'
+require 'config.color-scheme'
+require 'config.keymaps'
+require 'config.lsp'

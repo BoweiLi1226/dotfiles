@@ -22,19 +22,7 @@ return {
         opts_extend = { 'ensure_installed' },
     },
     {
-        'nvim-neotest/neotest',
-        optional = true,
-        dependencies = {
-            'nvim-neotest/neotest-python',
-        },
-        opts = function()
-            return {
-                adapters = {
-                    require('neotest-python')({}),
-                },
-            }
-        end,
-        opts_extend = { 'adapters' },
+        'nvim-neotest/neotest-python',
     },
     {
         'mfussenegger/nvim-dap-python',

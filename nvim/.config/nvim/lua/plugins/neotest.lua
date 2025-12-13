@@ -21,10 +21,14 @@ return {
             { '<leader>td', function() neotest.run.run({ strategy = 'dap' }) end, desc = 'Debug Nearest (DAP)' },
         }
     end,
-    opts = {
-        adapters = {},
-        status = { virtual_test = true },
-        output = { open_on_run = true },
-    },
-    opts_extend = { 'adapters' },
+    opts = function()
+        return {
+            adapters = {
+                require('neotest-golang')({ runner = 'gotestsum' }),
+                require('neotest-python')({}),
+            },
+            status = { virtual_test = true },
+            output = { open_on_run = true },
+        }
+    end,
 }

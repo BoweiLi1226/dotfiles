@@ -22,11 +22,20 @@ return {
         }
     end,
     opts = function()
+        local adapters = {}
+
+        local has_golang_adapter, golang_adapter = pcall(require, 'neotest-golang')
+        if has_golang_adapter then
+            table.insert(adapters, golang_adapter({ runner = 'gotestsum' }))
+        end
+
+        local has_python_adapter, python_adapter = pcall(require, 'neotest-python')
+        if has_python_adapter then
+            table.insert(adapters, python_adapter({ }))
+        end
+
         return {
-            adapters = {
-                require('neotest-golang')({ runner = 'gotestsum' }),
-                require('neotest-python')({}),
-            },
+            adapters = adapters,
             status = { virtual_test = true },
             output = { open_on_run = true },
         }

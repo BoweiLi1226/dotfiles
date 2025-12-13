@@ -3,36 +3,16 @@ return {
         'nvim-treesitter/nvim-treesitter',
         branch = 'main',
         event = 'VeryLazy',
-        config = function()
-            local treesitter = require 'nvim-treesitter'
-            treesitter.install({
-                'go',
-                'gomod',
-                'gowork',
-                'gosum',
-
-                'python',
-
-                'c',
-
-                'lua',
-                'luadoc',
-                'luap',
-
+        opts = {
+            ensure_installed = {
                 'vim',
                 'vimdoc',
-
-                'html',
-
-                'java',
-                'kotlin',
-
-                'rust',
-
-                'typescript',
-
-                'xml',
-            })
+            },
+        },
+        opts_extend = { 'ensure_installed' },
+        config = function(_, opts)
+            local treesitter = require 'nvim-treesitter'
+            treesitter.install(opts.ensure_installed)
         end,
     },
 
@@ -113,5 +93,14 @@ return {
                 move.goto_previous_end('@parameter.outer', 'textobjects')
             end)
         end,
+    },
+
+    {
+        'mason-org/mason.nvim',
+        optional = true,
+        opts = {
+            ensure_installed = { 'tree-sitter-cli' },
+        },
+        opts_extend = { 'ensure_installed' },
     },
 }

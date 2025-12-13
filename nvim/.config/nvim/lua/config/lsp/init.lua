@@ -1,6 +1,0 @@
-require 'config.lsp.lua'
-require 'config.lsp.python'
-require 'config.lsp.typescript'
-require 'config.lsp.go'
-require 'config.lsp.xml'
-require 'config.lsp.kotlin'

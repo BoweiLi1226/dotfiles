@@ -10,7 +10,6 @@ return {
         },
         opts_extend = { 'ensure_installed' },
     },
-
     {
         'mason-org/mason.nvim',
         optional = true,
@@ -21,5 +20,26 @@ return {
             },
         },
         opts_extend = { 'ensure_installed' },
+    },
+    {
+        'nvim-neotest/neotest',
+        optional = true,
+        dependencies = {
+            'nvim-neotest/neotest-python',
+        },
+        opts = function()
+            return {
+                adapters = {
+                    require('neotest-python')({}),
+                },
+            }
+        end,
+        opts_extend = { 'adapters' },
+    },
+    {
+        'mfussenegger/nvim-dap-python',
+        config = function(_, _)
+            require('dap-python').setup(vim.fn.stdpath('data') .. '/mason/packages/debugpy/debugpy-adapter')
+        end
     },
 }

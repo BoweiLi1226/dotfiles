@@ -26,4 +26,32 @@ return {
         },
         opts_extend = { 'ensure_installed' },
     },
+    {
+        'nvim-neotest/neotest',
+        optional = true,
+        dependencies = {
+            {
+                'fredrikaverpil/neotest-golang',
+                version = '*',
+                -- Install gotestsum using go from system
+                build = function()
+                    vim.system({'go', 'install', 'gotest.tools/gotestsum@latest'}):wait()
+                end,
+            },
+        },
+        opts = function()
+            return {
+                adapters = {
+                    require('neotest-golang')({
+                        runner = 'gotestsum',
+                    }),
+                }
+            }
+        end,
+        opts_extend = { 'adapters' },
+    },
+    {
+        'leoluz/nvim-dap-go',
+        opts = {},
+    },
 }

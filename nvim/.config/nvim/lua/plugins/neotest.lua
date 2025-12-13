@@ -1,24 +1,11 @@
 return {
     'nvim-neotest/neotest',
-
     dependencies = {
         'nvim-neotest/nvim-nio',
         'antoinemadec/FixCursorHold.nvim',
-
-        {
-            'fredrikaverpil/neotest-golang',
-            version = '*',
-            -- Install gotestsum using go from system
-            build = function()
-                vim.system({'go', 'install', 'gotest.tools/gotestsum@latest'}):wait()
-            end,
-        },
-        'nvim-neotest/neotest-python',
     },
-
     keys = function()
         local neotest = require 'neotest'
-
         return {
             { '<leader>tt', function() neotest.run.run(vim.fn.expand('%')) end, desc = 'Run File (Neotest)' },
             { '<leader>tT', function() neotest.run.run(vim.uv.cwd()) end, desc = 'Run All Test Files (Neotest)' },
@@ -34,17 +21,10 @@ return {
             { '<leader>td', function() neotest.run.run({ strategy = 'dap' }) end, desc = 'Debug Nearest (DAP)' },
         }
     end,
-
-    opts = function()
-        return {
-            adapters = {
-                require('neotest-golang')({
-                    runner = 'gotestsum',
-                }),
-                require('neotest-python')({}),
-            },
-            status = { virtual_test = true },
-            output = { open_on_run = true },
-        }
-    end,
+    opts = {
+        adapters = {},
+        status = { virtual_test = true },
+        output = { open_on_run = true },
+    },
+    opts_extend = { 'adapters' },
 }

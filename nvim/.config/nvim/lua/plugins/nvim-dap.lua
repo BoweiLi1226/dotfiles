@@ -27,14 +27,13 @@ return {
             }
         end,
     },
-
     {
         'igorlfs/nvim-dap-view',
         keys = {
             { '<leader>du', function() require('dap-view').toggle() end, desc = '[DAP view] Toggle' },
         },
         ---@module 'dap-view',
-        ---@type dapview.Config,
+        ---@type dapview.Config
         opts = {
             winbar = {
                 sections = { 'scopes', 'repl', 'watches', 'breakpoints', 'exceptions', 'threads'},
@@ -55,7 +54,17 @@ return {
             auto_toggle = true,
         },
     },
-
+    {
+        'folke/which-key.nvim',
+        event = 'VeryLazy',
+        optional = true,
+        opts = {
+            spec = {
+                { '<leader>d', group = 'debug' },
+            },
+        },
+        opts_extend = { 'spec' },
+    },
     {
         'rcarriga/nvim-dap-ui',
         enabled = false,

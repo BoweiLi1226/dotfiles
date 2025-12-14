@@ -38,4 +38,15 @@ return {
         'neovim/nvim-lspconfig',
         event = 'VeryLazy',
     },
+    {
+        'folke/which-key.nvim',
+        event = 'VeryLazy',
+        optional = true,
+        opts = {
+            spec = {
+                { '<leader>c', group = 'code' },
+            },
+        },
+        opts_extend = { 'spec' },
+    },
 }

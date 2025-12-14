@@ -8,12 +8,10 @@ return {
             auto_integrations = true,
         },
     },
-
     {
         'rose-pine/neovim',
         name = 'rose-pine',
     },
-
     {
         'folke/tokyonight.nvim',
         lazy = false,

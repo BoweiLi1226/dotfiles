@@ -22,25 +22,11 @@ return {
                 { '<leader>td', function() neotest.run.run({ strategy = 'dap' }) end, desc = 'Debug Nearest (DAP)' },
             }
         end,
-        opts = function()
-            local adapters = {}
-
-            local has_golang_adapter, golang_adapter = pcall(require, 'neotest-golang')
-            if has_golang_adapter then
-                table.insert(adapters, golang_adapter({ runner = 'gotestsum' }))
-            end
-
-            local has_python_adapter, python_adapter = pcall(require, 'neotest-python')
-            if has_python_adapter then
-                table.insert(adapters, python_adapter({ }))
-            end
-
-            return {
-                adapters = adapters,
-                status = { virtual_test = true },
-                output = { open_on_run = true },
-            }
-        end,
+        opts = {
+            adapters = {},
+            status = { virtual_test = true },
+            output = { open_on_run = true },
+        },
     },
     {
         'folke/which-key.nvim',

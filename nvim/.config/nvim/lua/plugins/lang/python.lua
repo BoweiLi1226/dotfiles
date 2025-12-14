@@ -22,7 +22,12 @@ return {
         opts_extend = { 'ensure_installed' },
     },
     {
-        'nvim-neotest/neotest-python',
+        'nvim-neotest/neotest',
+        dependencies = { 'nvim-neotest/neotest-python' },
+        optional = true,
+        opts = function(_, opts)
+            table.insert(opts.adapters, require('neotest-python')({ }))
+        end,
     },
     {
         'mfussenegger/nvim-dap-python',

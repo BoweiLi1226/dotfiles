@@ -46,15 +46,16 @@ return {
             local fzf = require 'fzf-lua'
             return {
                 -- LSP
-                { 'gd', function() fzf.lsp_definitions() end, desc = 'Goto Definitions' },
-                { 'gD', function() fzf.lsp_declarations() end, desc = 'Goto Declarations' },
-                { 'gr', function() fzf.lsp_references() end, desc = 'Goto References' },
-                { 'gI', function() fzf.lsp_implementations() end, desc = 'Goto Implementation' },
-                { 'gy', function() fzf.lsp_typedefs() end, desc = 'Goto Type Definitions' },
-                { '<leader>ss', function() fzf.lsp_document_symbols() end, desc = 'Document Symbols' },
-                { '<leader>sS', function() fzf.lsp_live_workspace_symbols() end, desc = 'Live Workspace Symbols' },
-                { '<leader>sd', function() fzf.lsp_document_diagnostics() end, desc = 'Document Diagnostics' },
-                { '<leader>sD', function() fzf.lsp_workspace_diagnostics() end, desc = 'Workspace Diagnostics' },
+                { 'gd', function() fzf.lsp_definitions() end, desc = 'Goto Definitions - fzf' },
+                { 'gD', function() fzf.lsp_declarations() end, desc = 'Goto Declarations - fzf' },
+                { 'gra', function() fzf.lsp_code_actions() end, desc = 'Code Actions - fzf' },
+                { 'gri', function() fzf.lsp_implementations() end, desc = 'Goto Implementation - fzf' },
+                { 'grr', function() fzf.lsp_references() end, desc = 'Goto References - fzf' },
+                { 'grt', function() fzf.lsp_typedefs() end, desc = 'Goto Type Definitions - fzf' },
+                { 'gO', function() fzf.lsp_document_symbols() end, desc = 'Document Symbols - fzf' },
+                { '<leader>sS', function() fzf.lsp_live_workspace_symbols() end, desc = 'Live Workspace Symbols - fzf' },
+                { '<leader>sd', function() fzf.lsp_document_diagnostics() end, desc = 'Document Diagnostics - fzf' },
+                { '<leader>sD', function() fzf.lsp_workspace_diagnostics() end, desc = 'Workspace Diagnostics - fzf' },
 
                 -- files
                 { '<leader><space>', function() fzf.global() end, desc = 'Global Picker' },

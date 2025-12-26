@@ -26,7 +26,10 @@ return {
         dependencies = { 'nvim-neotest/neotest-python' },
         optional = true,
         opts = function(_, opts)
-            table.insert(opts.adapters, require('neotest-python')({ }))
+            table.insert(opts.adapters, require('neotest-python')({
+                python = '.venv/bin/python',
+                runner = 'pytest',
+            }))
         end,
     },
     {

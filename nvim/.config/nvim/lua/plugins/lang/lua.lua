@@ -16,17 +16,26 @@ return {
         opts = {
             ensure_installed = {
                 'lua-language-server',
+                'stylua',
             },
         },
         opts_extend = { 'ensure_installed' },
     },
     {
-        "folke/lazydev.nvim",
-        ft = "lua",
+        'stevearc/conform.nvim',
+        optional = true,
+        opts = {
+            formatters_by_ft = {
+                lua = { 'stylua' },
+            },
+        },
+    },
+    {
+        'folke/lazydev.nvim',
+        ft = 'lua',
         opts = {
             library = {
-                "lazy.nvim",
-                { path = "${3rd}/luv/library", words = { "vim%.uv" } },
+                { path = '${3rd}/luv/library', words = { 'vim%.uv' } },
             },
         },
     },

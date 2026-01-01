@@ -19,8 +19,7 @@ return {
             local mr = require 'mason-registry'
 
             local function ensure_installed()
-                for _, tool in ipairs(opts.ensure_installed) do
-                    local p = mr.get_package(tool)
+                for _, tool in ipairs(opts.ensure_installed) do local p = mr.get_package(tool)
                     if not p:is_installed() then
                         p:install()
                     end
@@ -37,6 +36,25 @@ return {
     {
         'neovim/nvim-lspconfig',
         event = 'VeryLazy',
+    },
+    {
+        'stevearc/conform.nvim',
+        event = 'BufWritePre',
+        keys = {
+            {
+                '<leader>cf',
+                function()
+                    require('conform').format({ lsp_fallback = true })
+                end,
+                mode = { 'n', 'v' },
+                desc = 'Format buffer',
+            },
+        },
+        opts = {
+            formatters_by_ft = {
+                ['_'] = { 'trim_whitespace' },
+            },
+        },
     },
     {
         'folke/which-key.nvim',

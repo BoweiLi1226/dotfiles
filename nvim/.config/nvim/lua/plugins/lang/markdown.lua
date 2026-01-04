@@ -1,4 +1,4 @@
-vim.lsp.enable('markdown_oxide')
+vim.lsp.enable('marksman')
 
 return {
     {
@@ -20,7 +20,7 @@ return {
         'mason-org/mason.nvim',
         optional = true,
         opts = {
-            ensure_installed = { 'markdown-oxide' },
+            ensure_installed = { 'marksman' },
         },
         opts_extend = { 'ensure_installed' },
     },

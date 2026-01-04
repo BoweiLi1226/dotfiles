@@ -37,7 +37,11 @@ return {
 		dependencies = { "nvim-neotest/neotest-python" },
 		optional = true,
 		opts = function(_, opts)
-			table.insert(opts.adapters, require("neotest-python")({}))
+			table.insert(opts.adapters, require("neotest-python")({
+                is_test_file = function(file_path)
+                    return string.match(file_path, "%.py$") ~= nil
+                end
+            }))
 		end,
 	},
 	{

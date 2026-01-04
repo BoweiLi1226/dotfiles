@@ -25,12 +25,6 @@ return {
         opts_extend = { 'ensure_installed' },
     },
     {
-        'MeanderingProgrammer/render-markdown.nvim',
-        ---@module 'render-markdown'
-        ---@type render.md.UserConfig
-        opts = {},
-    },
-    {
         "iamcco/markdown-preview.nvim",
         cmd = { "MarkdownPreviewToggle", "MarkdownPreview", "MarkdownPreviewStop" },
         build = "cd app && yarn install",

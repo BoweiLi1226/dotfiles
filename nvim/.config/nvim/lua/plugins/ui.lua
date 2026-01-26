@@ -66,6 +66,10 @@ return {
         },
     },
     {
+        'norcalli/nvim-colorizer.lua',
+        event = "VeryLazy",
+    },
+    {
         'folke/snacks.nvim',
         optional = true,
         opts = {

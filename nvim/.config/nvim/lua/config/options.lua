@@ -27,4 +27,3 @@ vim.opt.hlsearch = false
 vim.opt.wrap = false
 vim.opt.showmode = false
 vim.opt.autoread = true
-

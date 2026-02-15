@@ -1,9 +1,5 @@
 if vim.g.vscode then
-	require("vscode_only.options")
-	require("vscode_only.keymaps")
+	require("vscode_neovim")
 else
-	require("config.options")
-	require("config.lazy")
-	require("config.color-scheme")
-	require("config.keymaps")
+	require("native_neovim")
 end

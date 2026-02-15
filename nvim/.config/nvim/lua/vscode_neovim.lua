@@ -1,5 +1,14 @@
+-- options
+vim.g.mapleader = " "
+vim.g.maplocalleader = "\\"
+
+vim.opt.ignorecase = true
+vim.opt.smartcase = true
+vim.opt.incsearch = true
+
 local vscode = require("vscode")
 
+-- keymaps
 local keymap = vim.keymap.set
 
 keymap({'n', 'v'}, "<leader>/", function()

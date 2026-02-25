@@ -15,7 +15,7 @@ return {
 		optional = true,
 		opts = {
 			ensure_installed = {
-				"pyright",
+				-- "pyright",
 				"basedpyright",
 				"debugpy",
 				"ruff",

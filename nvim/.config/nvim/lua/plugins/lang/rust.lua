@@ -15,13 +15,13 @@ return {
 			ensure_installed = {
 				-- "rust-analyzer",
 				-- "rustfmt",
+                "codelldb",
 			},
 		},
 		opts_extend = { "ensure_installed" },
 	},
 	{
 		"mrcjkb/rustaceanvim",
-		version = "^7",
 		lazy = false,
 	},
 	{

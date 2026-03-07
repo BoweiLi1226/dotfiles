@@ -20,7 +20,7 @@ return {
 		optional = true,
 		opts = {
 			ensure_installed = {
-				"clangd",
+				-- "clangd",
 				"clang-format",
 				"neocmakelsp",
 				"gersemi",

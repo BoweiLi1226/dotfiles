@@ -5,11 +5,17 @@ return {
 		priority = 1000,
 		opts = {
 			auto_integrations = true,
+			transparent_background = true,
 		},
 	},
 	{
 		"rose-pine/neovim",
 		name = "rose-pine",
+		opts = {
+			styles = {
+				transparency = true,
+			},
+		},
 	},
 	{
 		"folke/tokyonight.nvim",
@@ -26,8 +32,8 @@ return {
 	{
 		"navarasu/onedark.nvim",
 		priority = 1000,
-        opts = {
-            style = 'darker',
-        }
+		opts = {
+			style = "darker",
+		},
 	},
 }

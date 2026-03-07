@@ -15,7 +15,7 @@ return {
 			ensure_installed = {
 				-- "rust-analyzer",
 				-- "rustfmt",
-                "codelldb",
+				"codelldb",
 			},
 		},
 		opts_extend = { "ensure_installed" },

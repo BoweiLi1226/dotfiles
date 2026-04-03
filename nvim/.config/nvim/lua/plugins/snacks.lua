@@ -9,6 +9,15 @@ return {
 			quickfile = { enabled = true },
 			profiler = { enabled = true },
 		},
+		keys = {
+			{
+				"<leader>bd",
+				function()
+					Snacks.bufdelete()
+				end,
+				desc = "Delete Buffer",
+			},
+		},
 		init = function()
 			vim.api.nvim_create_autocmd("User", {
 				pattern = "VeryLazy",

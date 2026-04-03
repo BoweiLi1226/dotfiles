@@ -37,6 +37,7 @@ return {
 	},
 	{
 		"stevearc/oil.nvim",
+        enabled = false,
 		---@module 'oil'
 		---@type oil.SetupOpts
 		opts = {
@@ -49,7 +50,7 @@ return {
 		config = function(_, opts)
 			local oil = require("oil")
 			oil.setup(opts)
-			vim.keymap.set("n", "<leader>e", function()
+			vim.keymap.set("n", "-", function()
 				vim.cmd("Oil")
 			end, { desc = "Open parent directory" })
 		end,
@@ -431,11 +432,18 @@ return {
 		optional = true,
 		---@type snacks.Config
 		opts = {
-			explorer = { enabled = false },
+			explorer = { enabled = true },
 			picker = { enabled = true },
 		},
 		keys = {
 			-- Top Pickers & Explorer
+			{
+				"<leader>e",
+				function()
+					Snacks.explorer()
+				end,
+				desc = "File Explorer",
+			},
 			{
 				"<leader><space>",
 				function()

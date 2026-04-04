@@ -37,7 +37,7 @@ return {
 	},
 	{
 		"stevearc/oil.nvim",
-        enabled = false,
+		enabled = false,
 		---@module 'oil'
 		---@type oil.SetupOpts
 		opts = {
@@ -50,7 +50,7 @@ return {
 		config = function(_, opts)
 			local oil = require("oil")
 			oil.setup(opts)
-			vim.keymap.set("n", "-", function()
+			vim.keymap.set("n", "<leader>-", function()
 				vim.cmd("Oil")
 			end, { desc = "Open parent directory" })
 		end,
@@ -432,7 +432,7 @@ return {
 		optional = true,
 		---@type snacks.Config
 		opts = {
-			explorer = { enabled = true },
+			explorer = { enabled = false },
 			picker = { enabled = true },
 		},
 		keys = {
@@ -595,5 +595,21 @@ return {
 				desc = "Marks",
 			},
 		},
+	},
+	{
+		"mikavilpas/yazi.nvim",
+		version = "*", -- use the latest stable version
+		event = "VeryLazy",
+		keys = {
+			{
+				"<leader>-",
+				mode = { "n", "v" },
+				"<cmd>Yazi<cr>",
+				desc = "Open yazi at the current file",
+			},
+		},
+		init = function()
+			vim.g.loaded_netrwPlugin = 1
+		end,
 	},
 }

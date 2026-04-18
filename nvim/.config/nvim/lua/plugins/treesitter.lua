@@ -99,7 +99,9 @@ return {
 		"mason-org/mason.nvim",
 		optional = true,
 		opts = {
-			ensure_installed = { "tree-sitter-cli" },
+			ensure_installed = {
+				-- "tree-sitter-cli",
+			},
 		},
 		opts_extend = { "ensure_installed" },
 	},

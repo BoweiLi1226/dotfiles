@@ -15,7 +15,6 @@ return {
 			treesitter.install(opts.ensure_installed)
 		end,
 	},
-
 	{
 		"nvim-treesitter/nvim-treesitter-textobjects",
 		branch = "main",
@@ -94,7 +93,6 @@ return {
 			end)
 		end,
 	},
-
 	{
 		"mason-org/mason.nvim",
 		optional = true,

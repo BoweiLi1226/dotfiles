@@ -151,17 +151,6 @@ return {
 		},
 	},
 	{
-		"folke/which-key.nvim",
-		event = "VeryLazy",
-		optional = true,
-		opts = {
-			spec = {
-				{ "<leader>d", group = "debug" },
-			},
-		},
-		opts_extend = { "spec" },
-	},
-	{
 		"rcarriga/nvim-dap-ui",
 		enabled = false,
 		dependencies = {
@@ -213,5 +202,16 @@ return {
 				dapui.close({})
 			end
 		end,
+	},
+	{
+		"folke/which-key.nvim",
+		event = "VeryLazy",
+		optional = true,
+		opts = {
+			spec = {
+				{ "<leader>d", group = "debug" },
+			},
+		},
+		opts_extend = { "spec" },
 	},
 }

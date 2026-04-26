@@ -1,61 +1,5 @@
 return {
 	{
-		"Theprimeagen/harpoon",
-		branch = "harpoon2",
-		dependencies = {
-			{
-				"folke/which-key.nvim",
-				event = "VeryLazy",
-				optional = true,
-				opts = {
-					spec = {
-						{ "<leader>h", group = "harpoon" },
-					},
-				},
-				opts_extend = { "spec" },
-			},
-		},
-		keys = function()
-			local harpoon = require("harpoon")
-			return {
-				{
-					"<leader>ha",
-					function()
-						harpoon:list():add()
-					end,
-					desc = "Add to harpoon list",
-				},
-				{
-					"<leader>hl",
-					function()
-						harpoon.ui:toggle_quick_menu(harpoon:list())
-					end,
-					desc = "Show harpoon quick menu",
-				},
-			}
-		end,
-	},
-	{
-		"stevearc/oil.nvim",
-		enabled = false,
-		---@module 'oil'
-		---@type oil.SetupOpts
-		opts = {
-			keymaps = {
-				["h"] = { "actions.parent", mode = "n" },
-				["l"] = { "actions.select" },
-			},
-			use_default_keymaps = true,
-		},
-		config = function(_, opts)
-			local oil = require("oil")
-			oil.setup(opts)
-			vim.keymap.set("n", "<leader>-", function()
-				vim.cmd("Oil")
-			end, { desc = "Open parent directory" })
-		end,
-	},
-	{
 		"folke/flash.nvim",
 		event = "VeryLazy",
 		---@type Flash.Config
@@ -113,17 +57,80 @@ return {
 		},
 	},
 	{
-
-		"folke/which-key.nvim",
-		event = "VeryLazy",
-		optional = true,
-		opts = {
-			spec = {
-				{ "<leader>f", group = "file" },
-				{ "<leader>s", group = "search" },
+		"Theprimeagen/harpoon",
+		branch = "harpoon2",
+		dependencies = {
+			{
+				"folke/which-key.nvim",
+				event = "VeryLazy",
+				optional = true,
+				opts = {
+					spec = {
+						{ "<leader>h", group = "harpoon" },
+					},
+				},
+				opts_extend = { "spec" },
 			},
 		},
-		opts_extend = { "spec" },
+		keys = function()
+			local harpoon = require("harpoon")
+			return {
+				{
+					"<leader>ha",
+					function()
+						harpoon:list():add()
+					end,
+					desc = "Add to harpoon list",
+				},
+				{
+					"<leader>hl",
+					function()
+						harpoon.ui:toggle_quick_menu(harpoon:list())
+					end,
+					desc = "Show harpoon quick menu",
+				},
+			}
+		end,
+	},
+	{
+		"mikavilpas/yazi.nvim",
+		version = "*", -- use the latest stable version
+		event = "VeryLazy",
+		keys = {
+			{
+				"<leader>-",
+				mode = { "n", "v" },
+				"<cmd>Yazi<cr>",
+				desc = "Open yazi at the current file",
+			},
+		},
+		---@type YaziConfig | {}
+		opts = {
+			open_for_directories = true,
+		},
+		init = function()
+			vim.g.loaded_netrwPlugin = 1
+		end,
+	},
+	{
+		"stevearc/oil.nvim",
+		enabled = false,
+		---@module 'oil'
+		---@type oil.SetupOpts
+		opts = {
+			keymaps = {
+				["h"] = { "actions.parent", mode = "n" },
+				["l"] = { "actions.select" },
+			},
+			use_default_keymaps = true,
+		},
+		config = function(_, opts)
+			local oil = require("oil")
+			oil.setup(opts)
+			vim.keymap.set("n", "<leader>-", function()
+				vim.cmd("Oil")
+			end, { desc = "Open parent directory" })
+		end,
 	},
 	{
 		"folke/snacks.nvim",
@@ -288,23 +295,15 @@ return {
 		},
 	},
 	{
-		"mikavilpas/yazi.nvim",
-		version = "*", -- use the latest stable version
+		"folke/which-key.nvim",
 		event = "VeryLazy",
-		keys = {
-			{
-				"<leader>-",
-				mode = { "n", "v" },
-				"<cmd>Yazi<cr>",
-				desc = "Open yazi at the current file",
+		optional = true,
+		opts = {
+			spec = {
+				{ "<leader>f", group = "file" },
+				{ "<leader>s", group = "search" },
 			},
 		},
-		---@type YaziConfig | {}
-		opts = {
-			open_for_directories = true,
-		},
-		init = function()
-			vim.g.loaded_netrwPlugin = 1
-		end,
+		opts_extend = { "spec" },
 	},
 }

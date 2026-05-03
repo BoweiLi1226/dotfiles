@@ -7,6 +7,7 @@ return {
 			ensure_installed = {
 				"vim",
 				"vimdoc",
+                "regex",
 			},
 		},
 		opts_extend = { "ensure_installed" },

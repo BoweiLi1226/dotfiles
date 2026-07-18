@@ -17,7 +17,7 @@ return {
 			ensure_installed = {
 				-- "pyright",
 				-- "basedpyright",
-                "ty",
+				"ty",
 				"debugpy",
 				"ruff",
 			},
@@ -32,19 +32,5 @@ return {
 				python = { "ruff_organize_imports", "ruff_format" },
 			},
 		},
-	},
-	{
-		"nvim-neotest/neotest",
-		dependencies = { "nvim-neotest/neotest-python" },
-		optional = true,
-		opts = function(_, opts)
-			table.insert(opts.adapters, require("neotest-python")({}))
-		end,
-	},
-	{
-		"mfussenegger/nvim-dap-python",
-		config = function(_, _)
-			require("dap-python").setup(vim.fn.stdpath("data") .. "/mason/packages/debugpy/debugpy-adapter")
-		end,
 	},
 }

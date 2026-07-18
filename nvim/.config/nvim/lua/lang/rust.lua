@@ -1,12 +1,12 @@
-vim.lsp.enable("ty")
-
 return {
 	{
 		"nvim-treesitter/nvim-treesitter",
 		branch = "main",
 		optional = true,
 		opts = {
-			ensure_installed = { "python" },
+			ensure_installed = {
+				"rust",
+			},
 		},
 		opts_extend = { "ensure_installed" },
 	},
@@ -15,21 +15,22 @@ return {
 		optional = true,
 		opts = {
 			ensure_installed = {
-				-- "pyright",
-				-- "basedpyright",
-				"ty",
-				"debugpy",
-				"ruff",
+				-- "rust-analyzer",
+				-- "rustfmt",
 			},
 		},
 		opts_extend = { "ensure_installed" },
+	},
+	{
+		"mrcjkb/rustaceanvim",
+		lazy = false,
 	},
 	{
 		"stevearc/conform.nvim",
 		optional = true,
 		opts = {
 			formatters_by_ft = {
-				python = { "ruff_organize_imports", "ruff_format" },
+				rust = { "rustfmt" },
 			},
 		},
 	},

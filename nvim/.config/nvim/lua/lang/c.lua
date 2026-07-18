@@ -21,9 +21,9 @@ return {
 		opts = {
 			ensure_installed = {
 				-- "clangd",
-				"clang-format",
-				"neocmakelsp",
-				"gersemi",
+				-- "clang-format",
+				-- "neocmakelsp",
+				-- "gersemi",
 			},
 		},
 		opts_extend = { "ensure_installed" },

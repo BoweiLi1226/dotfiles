@@ -1,4 +1,4 @@
-vim.lsp.enable("gopls")
+vim.lsp.enable("ty")
 
 return {
 	{
@@ -7,10 +7,7 @@ return {
 		optional = true,
 		opts = {
 			ensure_installed = {
-				"go",
-				"gomod",
-				"gowork",
-				"gosum",
+				"python",
 			},
 		},
 		opts_extend = { "ensure_installed" },
@@ -20,10 +17,19 @@ return {
 		optional = true,
 		opts = {
 			ensure_installed = {
-				"gopls",
-				"delve",
+				-- "ty",
+				-- "ruff",
 			},
 		},
 		opts_extend = { "ensure_installed" },
+	},
+	{
+		"stevearc/conform.nvim",
+		optional = true,
+		opts = {
+			formatters_by_ft = {
+				python = { "ruff_organize_imports", "ruff_format" },
+			},
+		},
 	},
 }

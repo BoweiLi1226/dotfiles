@@ -20,7 +20,9 @@ return {
 		"mason-org/mason.nvim",
 		optional = true,
 		opts = {
-			ensure_installed = { "marksman" },
+			ensure_installed = {
+				-- "marksman",
+			},
 		},
 		opts_extend = { "ensure_installed" },
 	},

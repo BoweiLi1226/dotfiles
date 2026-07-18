@@ -6,7 +6,9 @@ return {
 		branch = "main",
 		optional = true,
 		opts = {
-			ensure_installed = { "lua" },
+			ensure_installed = {
+				"lua",
+			},
 		},
 		opts_extend = { "ensure_installed" },
 	},
@@ -15,8 +17,8 @@ return {
 		optional = true,
 		opts = {
 			ensure_installed = {
-				"lua-language-server",
-				"stylua",
+				-- "lua-language-server",
+				-- "stylua",
 			},
 		},
 		opts_extend = { "ensure_installed" },

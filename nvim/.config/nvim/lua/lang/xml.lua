@@ -1,4 +1,4 @@
--- vim.lsp.enable('kotlin_lsp')
+vim.lsp.enable("lemminx")
 
 return {
 	{
@@ -6,7 +6,9 @@ return {
 		branch = "main",
 		optional = true,
 		opts = {
-			ensure_installed = { "kotlin" },
+			ensure_installed = {
+				"xml",
+			},
 		},
 		opts_extend = { "ensure_installed" },
 	},
@@ -15,7 +17,9 @@ return {
 		"mason-org/mason.nvim",
 		optional = true,
 		opts = {
-			ensure_installed = { "kotlin-lsp" },
+			ensure_installed = {
+				-- "lemminx",
+			},
 		},
 		opts_extend = { "ensure_installed" },
 	},

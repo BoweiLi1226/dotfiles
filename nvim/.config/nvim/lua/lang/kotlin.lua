@@ -1,4 +1,4 @@
-vim.lsp.enable("ts_ls")
+-- vim.lsp.enable('kotlin_lsp')
 
 return {
 	{
@@ -6,7 +6,9 @@ return {
 		branch = "main",
 		optional = true,
 		opts = {
-			ensure_installed = { "typescript" },
+			ensure_installed = {
+				"kotlin",
+			},
 		},
 		opts_extend = { "ensure_installed" },
 	},
@@ -15,7 +17,9 @@ return {
 		"mason-org/mason.nvim",
 		optional = true,
 		opts = {
-			ensure_installed = { "typescript-language-server" },
+			ensure_installed = {
+				-- "kotlin-lsp",
+			},
 		},
 		opts_extend = { "ensure_installed" },
 	},

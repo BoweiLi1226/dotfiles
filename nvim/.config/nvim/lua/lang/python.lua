@@ -1,4 +1,4 @@
-vim.lsp.enable("ty")
+vim.lsp.enable("basedpyright")
 
 return {
 	{
@@ -17,7 +17,7 @@ return {
 		optional = true,
 		opts = {
 			ensure_installed = {
-				-- "ty",
+				-- "basedpyright",
 				-- "ruff",
 			},
 		},

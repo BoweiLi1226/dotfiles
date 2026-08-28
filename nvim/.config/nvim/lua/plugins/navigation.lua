@@ -48,24 +48,16 @@ return {
 		},
 	},
 	{
-		"mikavilpas/yazi.nvim",
-		version = "*", -- use the latest stable version
-		event = "VeryLazy",
-		keys = {
-			{
-				"<leader>-",
-				mode = { "n", "v" },
-				"<cmd>Yazi<cr>",
-				desc = "Open yazi at the current file",
+		"stevearc/oil.nvim",
+		---@module 'oil'
+		---@type oil.SetupOpts
+		opts = {
+			keymaps = {
+				["l"] = { "actions.select", mode = "n" },
+				["h"] = { "actions.parent", mode = "n" },
 			},
 		},
-		---@type YaziConfig | {}
-		opts = {
-			open_for_directories = true,
-		},
-		init = function()
-			vim.g.loaded_netrwPlugin = 1
-		end,
+		lazy = false,
 	},
 	{
 		"folke/snacks.nvim",

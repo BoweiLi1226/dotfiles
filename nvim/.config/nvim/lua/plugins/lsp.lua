@@ -1,5 +1,8 @@
 return {
 	{
+		"neovim/nvim-lspconfig",
+	},
+	{
 		"mason-org/mason.nvim",
 		event = "VeryLazy",
 		opts = {
@@ -33,9 +36,6 @@ return {
 				ensure_installed()
 			end
 		end,
-	},
-	{
-		"neovim/nvim-lspconfig",
 	},
 	{
 		"stevearc/conform.nvim",

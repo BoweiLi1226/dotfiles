@@ -1,3 +1,3 @@
-vim.cmd.colorscheme("tokyonight-moon")
+vim.cmd.colorscheme("catppuccin-mocha")
 
 vim.opt.termguicolors = true

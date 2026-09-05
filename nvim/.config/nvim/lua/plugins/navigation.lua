@@ -48,16 +48,20 @@ return {
 		},
 	},
 	{
-		"stevearc/oil.nvim",
-		lazy = false,
-		---@module 'oil'
-		---@type oil.SetupOpts
-		opts = {
-			keymaps = {
-				["l"] = { "actions.select", mode = "n" },
-				["h"] = { "actions.parent", mode = "n" },
+		"nvim-mini/mini.files",
+		opts = {},
+		keys = {
+			{
+				"-",
+				function()
+					require("mini.files").open()
+				end,
+				desc = "Open mini.files",
 			},
 		},
+		init = function()
+            vim.g.loaded_netrwPlugin = 1
+		end,
 	},
 	{
 		"folke/snacks.nvim",

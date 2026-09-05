@@ -1,50 +1,28 @@
 return {
 	{
 		"saghen/blink.cmp",
-		version = "*",
 		dependencies = {
+			"saghen/blink.lib",
 			"rafamadriz/friendly-snippets",
 		},
-		event = "VeryLazy",
+		build = function()
+			require("blink.cmp").build():pwait()
+		end,
+		---@module 'blink.cmp'
+		---@type blink.cmp.Config
 		opts = {
-			completion = {
-				documentation = {
-					auto_show = true,
-					window = {
-						border = "rounded",
-					},
-				},
-				menu = {
-					border = "rounded",
-					draw = {
-						columns = {
-							{ "label", "label_description", gap = 1 },
-							{ "kind_icon", "kind" },
-						},
-					},
-				},
-			},
-			keymap = {
-				preset = "super-tab",
-			},
-			sources = {
-				default = { "path", "snippets", "buffer", "lsp" },
-			},
-
-			-- cmd line
 			cmdline = {
-				sources = function()
-					local cmd_type = vim.fn.getcmdtype()
-					if cmd_type == "/" then
-						return { "buffer" }
-					end
-					if cmd_type == ":" then
-						return { "cmdline" }
-					end
-					return {}
-				end,
-				keymap = {
-					preset = "super-tab",
+				sources = {
+					default = function()
+						local cmd_type = vim.fn.getcmdtype()
+						if cmd_type == "/" then
+							return { "buffer" }
+						end
+						if cmd_type == ":" then
+							return { "cmdline" }
+						end
+						return {}
+					end,
 				},
 				completion = {
 					menu = {

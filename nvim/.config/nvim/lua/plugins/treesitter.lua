@@ -2,7 +2,7 @@ return {
 	{
 		"nvim-treesitter/nvim-treesitter",
 		branch = "main",
-		event = "VeryLazy",
+        lazy = false,
 		opts = {
 			ensure_installed = {
 				"vim",

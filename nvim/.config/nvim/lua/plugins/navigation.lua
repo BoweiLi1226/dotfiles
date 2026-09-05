@@ -49,6 +49,7 @@ return {
 	},
 	{
 		"stevearc/oil.nvim",
+		lazy = false,
 		---@module 'oil'
 		---@type oil.SetupOpts
 		opts = {
@@ -57,7 +58,6 @@ return {
 				["h"] = { "actions.parent", mode = "n" },
 			},
 		},
-		lazy = false,
 	},
 	{
 		"folke/snacks.nvim",
@@ -223,7 +223,6 @@ return {
 	},
 	{
 		"folke/which-key.nvim",
-		event = "VeryLazy",
 		optional = true,
 		opts = {
 			spec = {
@@ -231,6 +230,5 @@ return {
 				{ "<leader>s", group = "search" },
 			},
 		},
-		opts_extend = { "spec" },
 	},
 }

@@ -3,7 +3,6 @@ vim.lsp.enable("gopls")
 return {
 	{
 		"nvim-treesitter/nvim-treesitter",
-		branch = "main",
 		optional = true,
 		opts = {
 			ensure_installed = {
@@ -13,7 +12,6 @@ return {
 				"gosum",
 			},
 		},
-		opts_extend = { "ensure_installed" },
 	},
 	{
 		"mason-org/mason.nvim",
@@ -23,6 +21,5 @@ return {
 				-- "gopls",
 			},
 		},
-		opts_extend = { "ensure_installed" },
 	},
 }

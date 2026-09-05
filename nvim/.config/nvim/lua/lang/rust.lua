@@ -1,14 +1,12 @@
 return {
 	{
 		"nvim-treesitter/nvim-treesitter",
-		branch = "main",
 		optional = true,
 		opts = {
 			ensure_installed = {
 				"rust",
 			},
 		},
-		opts_extend = { "ensure_installed" },
 	},
 	{
 		"mason-org/mason.nvim",
@@ -19,7 +17,6 @@ return {
 				-- "rustfmt",
 			},
 		},
-		opts_extend = { "ensure_installed" },
 	},
 	{
 		"mrcjkb/rustaceanvim",

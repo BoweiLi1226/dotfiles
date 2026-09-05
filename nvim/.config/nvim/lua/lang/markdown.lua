@@ -3,7 +3,6 @@ vim.lsp.enable("marksman")
 return {
 	{
 		"nvim-treesitter/nvim-treesitter",
-		branch = "main",
 		optional = true,
 		opts = {
 			ensure_installed = {
@@ -14,7 +13,6 @@ return {
 				"yaml",
 			},
 		},
-		opts_extend = { "ensure_installed" },
 	},
 	{
 		"mason-org/mason.nvim",
@@ -24,7 +22,6 @@ return {
 				-- "marksman",
 			},
 		},
-		opts_extend = { "ensure_installed" },
 	},
 	{
 		"iamcco/markdown-preview.nvim",

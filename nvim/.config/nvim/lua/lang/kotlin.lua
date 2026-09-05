@@ -3,14 +3,12 @@
 return {
 	{
 		"nvim-treesitter/nvim-treesitter",
-		branch = "main",
 		optional = true,
 		opts = {
 			ensure_installed = {
 				"kotlin",
 			},
 		},
-		opts_extend = { "ensure_installed" },
 	},
 
 	{
@@ -21,6 +19,5 @@ return {
 				-- "kotlin-lsp",
 			},
 		},
-		opts_extend = { "ensure_installed" },
 	},
 }

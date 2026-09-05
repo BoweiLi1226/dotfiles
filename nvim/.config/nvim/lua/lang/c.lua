@@ -4,7 +4,6 @@ vim.lsp.enable("neocmake")
 return {
 	{
 		"nvim-treesitter/nvim-treesitter",
-		branch = "main",
 		optional = true,
 		opts = {
 			ensure_installed = {
@@ -13,7 +12,6 @@ return {
 				"cmake",
 			},
 		},
-		opts_extend = { "ensure_installed" },
 	},
 	{
 		"mason-org/mason.nvim",
@@ -26,7 +24,6 @@ return {
 				-- "gersemi",
 			},
 		},
-		opts_extend = { "ensure_installed" },
 	},
 	{
 		"stevearc/conform.nvim",

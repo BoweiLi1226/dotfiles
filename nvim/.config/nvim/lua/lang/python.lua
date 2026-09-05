@@ -1,11 +1,11 @@
 vim.lsp.config("basedpyright", {
-    settings = {
-        basedpyright = {
-            analysis = {
-                typeCheckingMode = "standard",
-            }
-        }
-    }
+	settings = {
+		basedpyright = {
+			analysis = {
+				typeCheckingMode = "standard",
+			},
+		},
+	},
 })
 
 vim.lsp.enable("basedpyright")
@@ -13,14 +13,12 @@ vim.lsp.enable("basedpyright")
 return {
 	{
 		"nvim-treesitter/nvim-treesitter",
-		branch = "main",
 		optional = true,
 		opts = {
 			ensure_installed = {
 				"python",
 			},
 		},
-		opts_extend = { "ensure_installed" },
 	},
 	{
 		"mason-org/mason.nvim",
@@ -31,7 +29,6 @@ return {
 				-- "ruff",
 			},
 		},
-		opts_extend = { "ensure_installed" },
 	},
 	{
 		"stevearc/conform.nvim",

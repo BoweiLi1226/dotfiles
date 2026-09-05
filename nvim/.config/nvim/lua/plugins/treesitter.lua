@@ -102,6 +102,5 @@ return {
 				-- "tree-sitter-cli",
 			},
 		},
-		opts_extend = { "ensure_installed" },
 	},
 }

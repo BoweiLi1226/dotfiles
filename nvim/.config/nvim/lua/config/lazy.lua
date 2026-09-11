@@ -32,4 +32,6 @@ require("lazy").setup({
 	install = { colorscheme = { "habamax" } },
 	-- automatically check for plugin updates
 	checker = { enabled = true },
+	-- Keep Neovim's native package directories available for vim.pack.
+	performance = { reset_packpath = false },
 })

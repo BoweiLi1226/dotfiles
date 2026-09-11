@@ -1,35 +1,31 @@
-return {
-	{
-		"saghen/blink.cmp",
-		dependencies = {
-			"saghen/blink.lib",
-			"rafamadriz/friendly-snippets",
+vim.pack.add({
+	"https://github.com/rafamadriz/friendly-snippets",
+	"https://github.com/saghen/blink.lib",
+	"https://github.com/saghen/blink.cmp",
+})
+
+local cmp = require("blink.cmp")
+
+cmp.build():pwait()
+
+cmp.setup({
+	cmdline = {
+		sources = {
+			default = function()
+				local cmd_type = vim.fn.getcmdtype()
+				if cmd_type == "/" then
+					return { "buffer" }
+				end
+				if cmd_type == ":" then
+					return { "cmdline" }
+				end
+				return {}
+			end,
 		},
-		build = function()
-			require("blink.cmp").build():pwait()
-		end,
-		---@module 'blink.cmp'
-		---@type blink.cmp.Config
-		opts = {
-			cmdline = {
-				sources = {
-					default = function()
-						local cmd_type = vim.fn.getcmdtype()
-						if cmd_type == "/" then
-							return { "buffer" }
-						end
-						if cmd_type == ":" then
-							return { "cmdline" }
-						end
-						return {}
-					end,
-				},
-				completion = {
-					menu = {
-						auto_show = true,
-					},
-				},
+		completion = {
+			menu = {
+				auto_show = true,
 			},
 		},
 	},
-}
+})

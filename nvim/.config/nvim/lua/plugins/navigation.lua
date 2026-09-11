@@ -1,238 +1,33 @@
-return {
-	{
-		"folke/flash.nvim",
-		event = "VeryLazy",
-		---@type Flash.Config
-		opts = {},
-		keys = {
-			{
-				"s",
-				mode = { "n", "x", "o" },
-				function()
-					require("flash").jump()
-				end,
-				desc = "Flash",
-			},
-			{
-				"S",
-				mode = { "n", "x", "o" },
-				function()
-					require("flash").treesitter()
-				end,
-				desc = "Flash Treesitter",
-			},
-			{
-				"r",
-				mode = "o",
-				function()
-					require("flash").remote()
-				end,
-				desc = "Remote Flash",
-			},
-			{
-				"R",
-				mode = { "o", "x" },
-				function()
-					require("flash").treesitter_search()
-				end,
-				desc = "Treesitter Search",
-			},
-			{
-				"<c-s>",
-				mode = { "c" },
-				function()
-					require("flash").toggle()
-				end,
-				desc = "Toggle Flash Search",
-			},
-		},
-	},
-	{
-		"nvim-mini/mini.files",
-		opts = {},
-		keys = {
-			{
-				"-",
-				function()
-					require("mini.files").open()
-				end,
-				desc = "Open mini.files",
-			},
-		},
-		init = function()
-            vim.g.loaded_netrwPlugin = 1
-		end,
-	},
-	{
-		"folke/snacks.nvim",
-		optional = true,
-		---@type snacks.Config
-		opts = {
-			explorer = { enabled = false },
-			picker = { enabled = true },
-		},
-		keys = {
-			-- Top Pickers & Explorer
-			{
-				"<leader><space>",
-				function()
-					Snacks.picker.smart()
-				end,
-				desc = "Smart Find Files",
-			},
-			{
-				"<leader>/",
-				function()
-					Snacks.picker.grep()
-				end,
-				desc = "Grep",
-			},
-			-- LSP
-			{
-				"gd",
-				function()
-					Snacks.picker.lsp_definitions()
-				end,
-				desc = "Goto Definition",
-			},
-			{
-				"gD",
-				function()
-					Snacks.picker.lsp_declarations()
-				end,
-				desc = "Goto Declarations",
-			},
-			{
-				"gri",
-				function()
-					Snacks.picker.lsp_implementations()
-				end,
-				desc = "Goto Implementations",
-			},
-			{
-				"grr",
-				function()
-					Snacks.picker.lsp_references()
-				end,
-				desc = "Goto References",
-			},
-			{
-				"grt",
-				function()
-					Snacks.picker.lsp_type_definitions()
-				end,
-				desc = "Goto Type Definitions",
-			},
-			{
-				"gO",
-				function()
-					Snacks.picker.lsp_symbols()
-				end,
-				desc = "Goto LSP Symbols",
-			},
-			{
-				"<leader>sS",
-				function()
-					Snacks.picker.lsp_workspace_symbols()
-				end,
-				desc = "Goto LSP workspace symbols",
-			},
-			{
-				"<leader>sd",
-				function()
-					Snacks.picker.diagnostics_buffer()
-				end,
-				desc = "Diagnostics Buffers",
-			},
-			{
-				"<leader>sD",
-				function()
-					Snacks.picker.diagnostics()
-				end,
-				desc = "Diagnostics",
-			},
-			-- Files
-			{
-				"<leader>fb",
-				function()
-					Snacks.picker.buffers()
-				end,
-				desc = "Find Buffers",
-			},
-			{
-				"<leader>ff",
-				function()
-					Snacks.picker.files()
-				end,
-				desc = "Find Files",
-			},
-			{
-				"<leader>fp",
-				function()
-					Snacks.picker.projects()
-				end,
-				desc = "Find Projects",
-			},
-			{
-				"<leader>fr",
-				function()
-					Snacks.picker.recent()
-				end,
-				desc = "Find Recent",
-			},
-			-- Search
-			{
-				'<leader>s"',
-				function()
-					Snacks.picker.registers()
-				end,
-				desc = "Registers",
-			},
-			{
-				"<leader>sa",
-				function()
-					Snacks.picker.autocmds()
-				end,
-				desc = "Autocmds",
-			},
-			{
-				"<leader>sc",
-				function()
-					Snacks.picker.commands()
-				end,
-				desc = "Commands",
-			},
-			{
-				"<leader>sC",
-				function()
-					Snacks.picker.command_history()
-				end,
-				desc = "Command History",
-			},
-			{
-				"<leader>sk",
-				function()
-					Snacks.picker.keymaps()
-				end,
-				desc = "Keymaps",
-			},
-			{
-				"<leader>sm",
-				function()
-					Snacks.picker.marks()
-				end,
-				desc = "Marks",
-			},
-		},
-	},
-	{
-		"folke/which-key.nvim",
-		optional = true,
-		opts = {
-			spec = {
-				{ "<leader>f", group = "file" },
-				{ "<leader>s", group = "search" },
-			},
-		},
-	},
-}
+vim.pack.add({ "https://github.com/nvim-mini/mini.files", "https://github.com/folke/flash.nvim" })
+
+local files = require("mini.files")
+
+files.setup()
+
+vim.keymap.set("n", "-", files.open, { desc = "Open mini.files" })
+
+vim.g.loaded_netrwPlugin = 1
+
+local flash = require("flash")
+
+flash.setup()
+
+vim.keymap.set({ "n", "x", "o" }, "s", function()
+	flash.jump()
+end, { desc = "Flash" })
+
+vim.keymap.set({ "n", "x", "o" }, "S", function()
+	flash.treesitter()
+end, { desc = "Flash Treesitter" })
+
+vim.keymap.set("o", "r", function()
+	flash.remote()
+end, { desc = "Remote Flash" })
+
+vim.keymap.set({ "o", "x" }, "R", function()
+	flash.treesitter_search()
+end, { desc = "Treesitter Search" })
+
+vim.keymap.set("c", "<c-s>", function()
+	flash.toggle()
+end, { desc = "Toggle Flash Search" })

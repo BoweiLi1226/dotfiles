@@ -1,66 +1,22 @@
-return {
-	{
-		"neovim/nvim-lspconfig",
-	},
-	{
-		"mason-org/mason.nvim",
-		opts = {
-			ui = {
-				icons = {
-					package_installed = "✓",
-					package_pending = "➜",
-					package_uninstalled = "✗",
-				},
-			},
-			ensure_installed = {},
-		},
-		opts_extend = { "ensure_installed" },
-		config = function(_, opts)
-			local mason = require("mason")
-			mason.setup(opts)
-			local mr = require("mason-registry")
+vim.pack.add({
+	"https://github.com/neovim/nvim-lspconfig",
+	"https://github.com/stevearc/conform.nvim",
+})
 
-			local function ensure_installed()
-				for _, tool in ipairs(opts.ensure_installed) do
-					local p = mr.get_package(tool)
-					if not p:is_installed() then
-						p:install()
-					end
-				end
-			end
+local conform = require("conform")
 
-			if mr.refresh then
-				mr.refresh(ensure_installed)
-			else
-				ensure_installed()
-			end
-		end,
+conform.setup({
+	formatters_by_ft = {
+		["_"] = { "trim_whitespace" },
+		c = { "clang-format" },
+		cpp = { "clang-format" },
+		cmake = { "gersemi" },
+		lua = { "stylua" },
+		python = { "ruff_organize_imports", "ruff_format" },
+		rust = { "rustfmt" },
 	},
-	{
-		"stevearc/conform.nvim",
-		keys = {
-			{
-				"<leader>cf",
-				function()
-					require("conform").format({ lsp_fallback = true })
-				end,
-				mode = { "n", "v" },
-				desc = "Format buffer",
-			},
-		},
-		opts = {
-			formatters_by_ft = {
-				["_"] = { "trim_whitespace" },
-			},
-		},
-	},
-	{
-		"folke/which-key.nvim",
-		optional = true,
-		opts = {
-			spec = {
-				{ "<leader>c", group = "code" },
-			},
-		},
-	},
-}
+})
+
+vim.keymap.set({ "n", "v" }, "<leader>cf", function()
+	conform.format({ lsp_format = "fallback" })
+end, { desc = "Format buffer" })

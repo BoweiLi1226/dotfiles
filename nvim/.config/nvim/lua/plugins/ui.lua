@@ -1,22 +1,10 @@
-return {
-	{
-		"nvim-tree/nvim-web-devicons",
-		opts = {},
+vim.pack.add({
+	"https://github.com/nvim-tree/nvim-web-devicons",
+	"https://github.com/nvim-lualine/lualine.nvim",
+})
+
+require("lualine").setup({
+	sections = {
+		lualine_c = { { "filename", path = 1 } },
 	},
-	{
-		"nvim-lualine/lualine.nvim",
-		opts = {
-			sections = {
-				lualine_c = { { "filename", path = 1 } },
-			},
-		},
-	},
-	{
-		"folke/snacks.nvim",
-		optional = true,
-		opts = {
-			notifier = { enabled = true },
-			notify = { enabled = true },
-		},
-	},
-}
+})

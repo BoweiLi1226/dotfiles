@@ -1,25 +1,3 @@
-vim.lsp.enable("gopls")
+require("nvim-treesitter").install({ "go", "gomod", "gowork", "gosum" })
 
-return {
-	{
-		"nvim-treesitter/nvim-treesitter",
-		optional = true,
-		opts = {
-			ensure_installed = {
-				"go",
-				"gomod",
-				"gowork",
-				"gosum",
-			},
-		},
-	},
-	{
-		"mason-org/mason.nvim",
-		optional = true,
-		opts = {
-			ensure_installed = {
-				-- "gopls",
-			},
-		},
-	},
-}
+vim.lsp.enable("gopls")

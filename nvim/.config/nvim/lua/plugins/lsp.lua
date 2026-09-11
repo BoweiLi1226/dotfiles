@@ -4,7 +4,6 @@ return {
 	},
 	{
 		"mason-org/mason.nvim",
-		event = "VeryLazy",
 		opts = {
 			ui = {
 				icons = {
@@ -39,7 +38,6 @@ return {
 	},
 	{
 		"stevearc/conform.nvim",
-		event = "BufWritePre",
 		keys = {
 			{
 				"<leader>cf",

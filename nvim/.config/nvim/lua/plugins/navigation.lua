@@ -198,16 +198,16 @@ return {
 			{
 				"<leader>sc",
 				function()
-					Snacks.picker.command_history()
+					Snacks.picker.commands()
 				end,
-				desc = "Command History",
+				desc = "Commands",
 			},
 			{
 				"<leader>sC",
 				function()
-					Snacks.picker.commands()
+					Snacks.picker.command_history()
 				end,
-				desc = "Commands",
+				desc = "Command History",
 			},
 			{
 				"<leader>sk",

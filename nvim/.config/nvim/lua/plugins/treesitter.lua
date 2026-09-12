@@ -9,7 +9,11 @@ vim.pack.add({
 	},
 })
 
-require("nvim-treesitter").install({ "vim", "vimdoc", "regex" })
+require("registry.treesitter").register({ "vim", "vimdoc", "regex" })
+
+require("registry.mason").register({
+	-- "tree-sitter-cli",
+})
 
 local textobjects = require("nvim-treesitter-textobjects")
 

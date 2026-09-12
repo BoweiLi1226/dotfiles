@@ -5,16 +5,8 @@ vim.pack.add({
 
 local conform = require("conform")
 
-conform.setup({
-	formatters_by_ft = {
-		["_"] = { "trim_whitespace" },
-		c = { "clang-format" },
-		cpp = { "clang-format" },
-		cmake = { "gersemi" },
-		lua = { "stylua" },
-		python = { "ruff_organize_imports", "ruff_format" },
-		rust = { "rustfmt" },
-	},
+require("registry.conform").register({
+	["_"] = { "trim_whitespace" },
 })
 
 vim.keymap.set({ "n", "v" }, "<leader>cf", function()

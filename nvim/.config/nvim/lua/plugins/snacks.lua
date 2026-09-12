@@ -3,8 +3,8 @@ vim.pack.add({ "https://github.com/folke/snacks.nvim" })
 local snacks = require("snacks")
 
 snacks.setup({
-	bigfile = { enabled = true },
 	explorer = { enabled = false },
+	bigfile = { enabled = true },
 	notifier = { enabled = true },
 	notify = { enabled = true },
 	picker = { enabled = true },

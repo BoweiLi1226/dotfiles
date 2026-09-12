@@ -4,7 +4,6 @@ vim.pack.add({
 
 local icons = require("mini.icons")
 icons.setup()
-icons.mock_nvim_web_devicons()
 
 local files = require("mini.files")
 files.setup()
@@ -24,3 +23,5 @@ require("mini.snippets").setup()
 require("mini.pairs").setup()
 
 require("mini.surround").setup()
+
+require("mini.statusline").setup()

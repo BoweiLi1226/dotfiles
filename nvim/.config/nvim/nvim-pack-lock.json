@@ -16,9 +16,9 @@
       "rev": "5f0f270fdc7c5b0c21d903ee85b9cb06f2ac636a",
       "src": "https://github.com/folke/flash.nvim"
     },
-    "friendly-snippets": {
-      "rev": "41e39025bcb149af24298b59fdfa682584d9cd4b",
-      "src": "https://github.com/rafamadriz/friendly-snippets"
+    "fzf-lua": {
+      "rev": "05e44d38de0a79c11fba5f7bf8138791b1dbdd1e",
+      "src": "https://github.com/ibhagwan/fzf-lua"
     },
     "lazydev.nvim": {
       "rev": "ff2cbcba459b637ec3fd165a2be59b7bbaeedf0d",
@@ -58,10 +58,6 @@
       "src": "https://github.com/nvim-treesitter/nvim-treesitter-textobjects",
       "version": "'main'"
     },
-    "nvim-web-devicons": {
-      "rev": "5f032a85be210cd1c6ac98861eb3b187ff3bd5eb",
-      "src": "https://github.com/nvim-tree/nvim-web-devicons"
-    },
     "rose-pine": {
       "rev": "ff483051a47e27d84bdef47703538df1ed9f4a47",
       "src": "https://github.com/rose-pine/neovim"
@@ -69,10 +65,6 @@
     "rustaceanvim": {
       "rev": "c20095002309265822dc41b3a65e8b8b8940ca55",
       "src": "https://github.com/mrcjkb/rustaceanvim"
-    },
-    "snacks.nvim": {
-      "rev": "882c996cf28183f4d63640de0b4c02ec886d01f2",
-      "src": "https://github.com/folke/snacks.nvim"
     },
     "vimtex": {
       "rev": "45a5a56fd6d78ef8b562addf2b3773ce5d935af2",

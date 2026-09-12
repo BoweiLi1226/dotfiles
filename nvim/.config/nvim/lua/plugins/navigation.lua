@@ -1,12 +1,4 @@
-vim.pack.add({ "https://github.com/nvim-mini/mini.files", "https://github.com/folke/flash.nvim" })
-
-local files = require("mini.files")
-
-files.setup()
-
-vim.keymap.set("n", "-", files.open, { desc = "Open mini.files" })
-
-vim.g.loaded_netrwPlugin = 1
+vim.pack.add({ "https://github.com/folke/flash.nvim" })
 
 local flash = require("flash")
 

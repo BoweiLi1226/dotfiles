@@ -33,7 +33,7 @@
       "src": "https://github.com/mason-org/mason.nvim"
     },
     "mini.nvim": {
-      "rev": "6664ea9af6c43dc31934e27476bbe61c556c8dc1",
+      "rev": "ac5dffcc52b8378fbb15efeb0497a83e57a0b01c",
       "src": "https://github.com/nvim-mini/mini.nvim"
     },
     "nvim-jdtls": {
@@ -59,7 +59,7 @@
       "src": "https://github.com/rose-pine/neovim"
     },
     "rustaceanvim": {
-      "rev": "18e5f45a12924f225f41e33c205f0f377b14f98b",
+      "rev": "3f8bc4d20b6e74474f7a86d230a5e4bd94a8b478",
       "src": "https://github.com/mrcjkb/rustaceanvim"
     },
     "vimtex": {

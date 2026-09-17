@@ -1,7 +1,7 @@
 require("registry.treesitter").register({ "typescript" })
 
 require("registry.mason").register({
-	-- "typescript-language-server",
+	-- "tsc"
 })
 
-vim.lsp.enable("ts_ls")
+vim.lsp.enable("tsc")

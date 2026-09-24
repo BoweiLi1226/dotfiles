@@ -13,7 +13,10 @@
     bat
     eza
     btop
+    procs
+    gh
     lazygit
+    antidote
     stow
     fd
     fzf
@@ -21,11 +24,13 @@
     zoxide
     herdr
 
+    rustup
     uv
     cmake
     go
     python3
     nodejs
+    texliveSmall
 
     neovim
     tree-sitter

@@ -5,6 +5,39 @@
     "$HOME/.local/bin"
   ];
 
+  programs.ghostty = {
+  enable = true;
+  package = null; # Not supported on macOS
+
+  settings = {
+    theme = "Rose Pine";
+
+    clipboard-read = "allow";
+    clipboard-write = "allow";
+
+    font-family = "FantasqueSansM Nerd Font Mono";
+    font-size = 20.0;
+    font-thicken = true;
+
+    macos-option-as-alt = true;
+    macos-titlebar-style = "tabs";
+    macos-titlebar-proxy-icon = "hidden";
+
+    window-padding-x = 8;
+    window-padding-y = 8;
+    window-save-state = "always";
+
+    cursor-style-blink = false;
+    cursor-style = "bar";
+
+    shell-integration-features = "no-cursor";
+
+    scrollback-limit = 10000;
+
+    quit-after-last-window-closed = true;
+   };
+  };
+
   programs.zsh = {
     enable = true;
     autosuggestion.enable = true;
@@ -94,9 +127,6 @@
     stylua
     marksman
   ];
-
-  xdg.configFile."ghostty".source =
-    ../ghostty/.config/ghostty;
 
   home.stateVersion = "26.05";
 }

@@ -1,73 +1,77 @@
-# Bowei's dotfiles
+# Bowei's Dotfiles
 
-Clone this repository
-```
+Personal dotfiles for macOS, managed with Nix, nix-darwin, and Home Manager.
+
+## Setup
+
+Clone the repository:
+
+```bash
 git clone git@github.com:BoweiLi1226/dotfiles.git ~/.dotfiles
+cd ~/.dotfiles
 ```
+
+Run the setup script:
+
+```bash
+./setup.sh
+```
+
+The script will:
+
+- Install Lix if Nix is not already installed
+- Bootstrap or apply the nix-darwin configuration
+- Bootstrap or apply the Home Manager configuration
+
+If Lix is installed during setup, restart the terminal and run `./setup.sh` again.
 
 ## Nix
-The Nix configuration lives in `nix/` and uses nix-darwin for macOS system configuration and Home Manager for user configuration.
 
-1. Install Lix
+The Nix configuration lives in `nix/`.
+
+- **nix-darwin** manages macOS system-level configuration.
+- **Home Manager** manages user-level configuration.
+
+### Apply configuration changes
+
+The following commands assume the repository was cloned to the default location used above, `~/.dotfiles`. If you cloned it elsewhere, replace `~/.dotfiles` with the corresponding path.
+
+For macOS system-level changes:
+
 ```bash
-curl -sSf -L https://install.lix.systems/lix | sh -s -- install
-```
-
-   Restart the terminal and verify
-```bash
-nix --version
-```
-2. Bootstrap nix-darwin
-
-   For the initial macOS system setup:
-```
-sudo nix run nix-darwin/master#darwin-rebuild -- \
-  switch --flake ~/.dotfiles/nix#mac
-```
-
-3. Bootstrap Home Manager
-
-   For the initial user environment setup:
-```
-nix run github:nix-community/home-manager -- \
-  switch --flake ~/.dotfiles/nix#boweili
-```
-
-4. Apply configuration changes
-
-   For macOS system-level changes:
-```
 sudo darwin-rebuild switch --flake ~/.dotfiles/nix#mac
 ```
-   For user-level changes:
-```
+
+For user-level changes:
+
+```bash
 home-manager switch --flake ~/.dotfiles/nix#boweili
 ```
 
 ## Neovim
-The Neovim configuration is automatically linked by Home Manager when applying the Home Manager configuration, so no additional setup is required.
+
+The Neovim configuration is managed by Home Manager and linked automatically when applying the Home Manager configuration.
 
 After setup, open Neovim and run:
-```
+
+```vim
 :checkhealth
 ```
+
 Fix any remaining dependencies reported by Neovim.
 
 ### Neovim config only
-If you only want to use the Neovim configuration without Nix, install GNU Stow and run from the dotfiles repository:
+
+To use the Neovim configuration without setting up Nix or Home Manager:
+
 ```bash
-stow -t ~ nvim
+./setup_neovim_config.sh
 ```
 
-## Tmux
-1. Install TPM:
-```bash
-git clone https://github.com/tmux-plugins/tpm ~/.config/tmux/plugins/tpm
+This creates a symbolic link from the Neovim configuration in this repository to:
+
+```text
+~/.config/nvim
 ```
 
-2. Run:
-```bash
-stow -t ~ tmux
-```
-
-3. You might need to comment out the individual plugins first to install tpm and source `tmux.conf` file.
+Existing Neovim configuration will not be overwritten.

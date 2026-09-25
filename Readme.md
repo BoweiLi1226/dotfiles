@@ -41,7 +41,7 @@ sudo darwin-rebuild switch --flake ~/.dotfiles/nix-darwin#mac
 ```
    For user-level changes in home.nix:
 ```
-home-manager switch --flake ~/.dotfiles/nix-darwin#mac
+home-manager switch --flake ~/.dotfiles/nix-darwin#boweili
 ```
 
 ## Neovim

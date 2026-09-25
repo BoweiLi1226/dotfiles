@@ -21,7 +21,7 @@
     # $ darwin-rebuild build --flake .#mac
     darwinConfigurations."mac" = nix-darwin.lib.darwinSystem {
       modules = [
-        ./configuration.nix
+        ./darwin
       ];
 
       specialArgs = {
@@ -33,7 +33,7 @@
       inherit pkgs;
 
       modules = [
-        ./home.nix
+        ./home
       ];
 
       extraSpecialArgs = {

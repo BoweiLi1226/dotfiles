@@ -114,7 +114,7 @@
   };
 
   xdg.configFile."nvim".source =
-    ../nvim/.config/nvim;
+    ../../nvim/.config/nvim;
 
   home.packages = with pkgs; [
     procs

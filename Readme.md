@@ -5,8 +5,8 @@ Clone this repository
 git clone git@github.com:BoweiLi1226/dotfiles.git ~/.dotfiles
 ```
 
-## Nix / nix-darwin
-The nix-darwin configuration lives in `nix-darwin/`.
+## Nix
+The Nix configuration lives in `nix/` and uses nix-darwin for macOS system configuration and Home Manager for user configuration.
 
 1. Install Lix
 ```bash
@@ -17,35 +17,35 @@ curl -sSf -L https://install.lix.systems/lix | sh -s -- install
 ```bash
 nix --version
 ```
-
 2. Bootstrap nix-darwin
 
-   For the initial system setup:
+   For the initial macOS system setup:
 ```
 sudo nix run nix-darwin/master#darwin-rebuild -- \
-  switch --flake ~/.dotfiles/nix-darwin#mac
+  switch --flake ~/.dotfiles/nix#mac
 ```
 
 3. Bootstrap Home Manager
+
    For the initial user environment setup:
 ```
 nix run github:nix-community/home-manager -- \
-  switch --flake ~/.dotfiles/nix-darwin#boweili
+  switch --flake ~/.dotfiles/nix#boweili
 ```
 
 4. Apply configuration changes
 
-   For system-level changes in configuration.nix:
+   For macOS system-level changes:
 ```
-sudo darwin-rebuild switch --flake ~/.dotfiles/nix-darwin#mac
+sudo darwin-rebuild switch --flake ~/.dotfiles/nix#mac
 ```
-   For user-level changes in home.nix:
+   For user-level changes:
 ```
-home-manager switch --flake ~/.dotfiles/nix-darwin#boweili
+home-manager switch --flake ~/.dotfiles/nix#boweili
 ```
 
 ## Neovim
-The Neovim configuration is automatically linked by Home Manager when applying the nix-darwin configuration, so no additional setup is required.
+The Neovim configuration is automatically linked by Home Manager when applying the Home Manager configuration, so no additional setup is required.
 
 After setup, open Neovim and run:
 ```
@@ -60,12 +60,12 @@ stow -t ~ nvim
 ```
 
 ## Tmux
-1. Install TPM from [page](https://github.com/tmux-plugins/tpm), with following command
+1. Install TPM:
 ```bash
 git clone https://github.com/tmux-plugins/tpm ~/.config/tmux/plugins/tpm
 ```
 
-2. Run
+2. Run:
 ```bash
 stow -t ~ tmux
 ```

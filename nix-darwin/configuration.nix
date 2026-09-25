@@ -1,4 +1,5 @@
 { pkgs, inputs, ... }: 
+
 {
   nix.package = pkgs.lix;
 
@@ -9,35 +10,7 @@
 
   # List packages installed in system profile. To search by name, run:
   # $ nix-env -qaP | grep wget
-  environment.systemPackages = with pkgs; [
-    bat
-    eza
-    btop
-    procs
-    gh
-    lazygit
-    antidote
-    stow
-    fd
-    fzf
-    ripgrep
-    zoxide
-    herdr
-
-    rustup
-    uv
-    cmake
-    go
-    python3
-    nodejs
-    texliveSmall
-
-    neovim
-    tree-sitter
-    lua-language-server
-    stylua
-    marksman
-  ];
+  environment.systemPackages = [];
 
   fonts.packages = with pkgs; [
     nerd-fonts.fantasque-sans-mono

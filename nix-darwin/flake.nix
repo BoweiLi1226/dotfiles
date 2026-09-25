@@ -11,27 +11,32 @@
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
   };
 
-  outputs = inputs@{ self, nix-darwin, nixpkgs, home-manager }:
+  outputs = inputs@{ nix-darwin, nixpkgs, home-manager, ... }:
+  let
+    system = "aarch64-darwin";
+    pkgs = nixpkgs.legacyPackages.${system};
+  in
   {
     # Build darwin flake using:
     # $ darwin-rebuild build --flake .#mac
     darwinConfigurations."mac" = nix-darwin.lib.darwinSystem {
       modules = [
         ./configuration.nix
-
-        home-manager.darwinModules.home-manager
-
-        {
-          home-manager = {
-            useGlobalPkgs = true;
-            useUserPackages = true;
-
-            users.boweili = ./home.nix;
-          };
-        }
       ];
 
       specialArgs = {
+        inherit inputs;
+      };
+    };
+
+    homeConfigurations.boweili = home-manager.lib.homeManagerConfiguration {
+      inherit pkgs;
+
+      modules = [
+        ./home.nix
+      ];
+
+      extraSpecialArgs = {
         inherit inputs;
       };
     };

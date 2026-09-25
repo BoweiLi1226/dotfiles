@@ -1,9 +1,10 @@
 { pkgs, ... }:
 
 {
-  home.sessionPath = [
-    "$HOME/.local/bin"
-  ];
+  home.username = "boweili";
+  home.homeDirectory = "/Users/boweili";
+
+  programs.home-manager.enable = true;
 
   programs.ghostty = {
   enable = true;
@@ -126,6 +127,10 @@
     lua-language-server
     stylua
     marksman
+  ];
+
+  home.sessionPath = [
+    "$HOME/.local/bin"
   ];
 
   home.stateVersion = "26.05";

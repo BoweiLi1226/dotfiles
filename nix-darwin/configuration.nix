@@ -3,11 +3,6 @@
 {
   nix.package = pkgs.lix;
 
-  users.users.boweili = {
-    name = "boweili";
-    home = "/Users/boweili";
-  };
-
   # List packages installed in system profile. To search by name, run:
   # $ nix-env -qaP | grep wget
   environment.systemPackages = [];

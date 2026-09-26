@@ -21,6 +21,7 @@
     # $ darwin-rebuild build --flake .#mac
     darwinConfigurations."mac" = nix-darwin.lib.darwinSystem {
       modules = [
+        ./common
         ./darwin
       ];
 

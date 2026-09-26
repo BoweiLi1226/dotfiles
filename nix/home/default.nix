@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ config, pkgs, ... }:
 
 {
   home.username = "boweili";
@@ -113,8 +113,8 @@
     sideloadInitLua = true;
   };
 
-  xdg.configFile."nvim".source =
-    ../../nvim/.config/nvim;
+  xdg.configFile."nvim".source = config.lib.file.mkOutOfStoreSymlink
+    "${config.home.homeDirectory}/.dotfiles/nvim/.config/nvim";
 
   home.packages = with pkgs; [
     procs
@@ -122,6 +122,10 @@
     typescript
     rustup
     cmake
+    ninja
+    neocmakelsp
+    gersemi
+    clang-tools
 
     tree-sitter
     lua-language-server

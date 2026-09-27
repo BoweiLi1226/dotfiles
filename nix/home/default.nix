@@ -16,8 +16,8 @@
     clipboard-read = "allow";
     clipboard-write = "allow";
 
-    font-family = "FantasqueSansM Nerd Font Mono";
-    font-size = 20.0;
+    font-family = "GoogleSansCode Nerd Font Mono";
+    font-size = 19.0;
     font-thicken = true;
 
     macos-option-as-alt = true;
@@ -125,7 +125,6 @@
     ninja
     neocmakelsp
     gersemi
-    clang-tools
 
     tree-sitter
     lua-language-server

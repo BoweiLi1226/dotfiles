@@ -103,7 +103,14 @@
 
   programs.npm.enable = true;
   programs.go.enable = true;
-  programs.texlive.enable = true;
+  programs.texlive = {
+    enable = true;
+    extraPackages = tpkgs: {
+      inherit (tpkgs)
+        collection-latexextra
+        collection-fontsrecommended;
+    };
+  };
 
   programs.neovim = {
     enable = true;

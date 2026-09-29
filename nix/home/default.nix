@@ -128,6 +128,7 @@
 
     typescript
     rustup
+    vcpkg
     cmake
     ninja
     neocmakelsp

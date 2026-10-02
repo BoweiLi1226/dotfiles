@@ -129,6 +129,7 @@
     typescript
     rustup
     vcpkg
+    pkg-config
     cmake
     ninja
     neocmakelsp
@@ -143,6 +144,10 @@
   home.sessionPath = [
     "$HOME/.local/bin"
   ];
+
+  home.sessionVariables = {
+    VCPKG_ROOT = "${pkgs.vcpkg}/share/vcpkg";
+  };
 
   home.stateVersion = "26.05";
 }
